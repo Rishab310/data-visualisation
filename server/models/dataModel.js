@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const dataItemSchema = new Schema({
+const dataSchema = new Schema({
   original_value : {
     type: Number,
     required: true,
@@ -27,12 +27,12 @@ const dataItemSchema = new Schema({
     required: true,
   },
 });
-const dataSchema = new Schema({
+const dataItemSchema = new Schema({
   metricId: {
     type: String,
     required: true,
   },
-  metricData: [dataItemSchema],
+  metricData: [dataSchema],
 });
 
-module.exports = mongoose.model("Data", dataSchema);
+module.exports = mongoose.model("DataItem", dataSchema);

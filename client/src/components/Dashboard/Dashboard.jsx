@@ -12,7 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -52,13 +52,13 @@ export const data = {
   datasets: [
     {
       label: 'Anomaly',
-      data:objectData.map(item => (item.line_status!=0)?item.original_value:null),
+      data:objectData.map(item => (item.line_status!==0)?item.original_value:null),
       borderColor: 'rgb(255, 0,0)',
       backgroundColor:'rgba(255, 0,0)',
     },
     {
       label: 'Dataset 1',
-      data:objectData.map(item => (item.line_status==3 || item.line_status===0)?item.original_value:null),
+      data:objectData.map(item => (item.line_status===3 || item.line_status===0)?item.original_value:null),
       borderColor: 'rgb(0, 0,255)',
       backgroundColor:'rgba(0, 0,255)',
     },
@@ -84,7 +84,7 @@ export const data = {
 };
 const Dashboard = (props) => {
   console.log(objectData.filter(item => item.line_status>0 && item.line_status<3).map(item => item.original_value));
-  console.log(objectData.map(item => (item.line_status!=0)?item.original_value:null));
+  console.log(objectData.map(item => (item.line_status!==0)?item.original_value:null));
   return ( 
     <>
     <nav className="navbar navbar-light bg-light">

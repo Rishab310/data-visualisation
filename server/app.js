@@ -2,12 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
-const metricRoute = require("./routes/metric");
+const metricRoute = require("./routes/metricRoute");
+const dataRoute = require("./routes/dataRoute");
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 app.use(metricRoute);
+app.use(dataRoute);
+
 if (process.env.NODE_ENV === "production" ) {
   app.use(express.static(path.join(__dirname, "../client/build")));
   app.get("*", (req, res) => {
