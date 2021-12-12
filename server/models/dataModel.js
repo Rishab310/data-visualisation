@@ -35,4 +35,4 @@ const dataItemSchema = new Schema({
   metricData: [dataSchema],
 });
 
-module.exports = mongoose.model("DataItem", dataSchema);
+module.exports = mongoose.model("DataItem", dataItemSchema);
