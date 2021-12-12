@@ -7,11 +7,10 @@ import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 const Dashboard = (props) => {
   const [metrics, setMetrics] = useState([]);
-  const [currentPage, setCurrentPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/getMetrics")
+    axios.get("https://data-visualisation-cliff.herokuapp.com/getMetrics")
       .then((res) => {
         console.log(res);
         setMetrics(res.data);
@@ -23,8 +22,8 @@ const Dashboard = (props) => {
 
   return (
     <>
-      {metrics.length === 0 ? (
-        <div class="text-center">
+      {(metrics.length ===0 ) ? (
+        <div class="text-center" style={{position:"absolute",top:"50%",left:"50%",marginTop:"-25px",marginRight:"-25px"}}>
           <div class="spinner-border text-primary" style={{width:"50px",height:"50px"}} role="status">
             <span class="visually-hidden">Loading...</span>
           </div>

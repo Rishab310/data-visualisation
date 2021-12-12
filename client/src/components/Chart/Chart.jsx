@@ -27,7 +27,7 @@ const Chart = ({metricData}) => {
   const [ objectData, setObjectData] = useState([]);
   useEffect(()=> {
     // console.log("now");
-    axios.post("http://localhost:5000/getDataItem", {
+    axios.post("https://data-visualisation-cliff.herokuapp.com/getDataItem", {
         "metricId": metricData? metricData._id : ""
     })
     .then(res => {
